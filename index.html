@@ -52,6 +52,17 @@
 </head>
 
 <body>
+    <script>
+        (function() {
+            if (window.location.search) {
+                var match = window.location.search.match(/^\?\/?(.*)$/);
+                if (match) {
+                    var decoded = decodeURIComponent(match[1]);
+                    window.history.replaceState({}, '', '/' + decoded);
+                }
+            }
+        })();
+    </script>
     <div id="app">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
